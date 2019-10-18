@@ -1,0 +1,11 @@
+ru:
+  activerecord:
+    models:
+      post:
+        attributes:
+          post:
+            author: Автор
+            body: Текст сообщения
+            title: Заголовок
+            page_views_count: Колличество просмотров
+  
