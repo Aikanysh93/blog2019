@@ -3,13 +3,15 @@
 <h1>Блог</h1>
 
 <%@posts.each do |post|%>
-<div>
-  <h3><%=post.title%></h3>
-  <p><%= post.body %></p>
-  <small><%=post.user&.login%></small>
-  <%= l(post.created_at, format: :long) %>
-  <%= link_to 'Подробнее', "/posts_path/#{post.id}" %>
-</div>
+  <div class="post">
+        <h3 class="title"><%=post.title%></h3>
+        <b><p><%= post.body %></p></b>
+        <small><%=post.user&.login%></small>
+        <%= l(post.created_at, format: :long) %>
+        <%= link_to 'Подробнее', post %>
+    </div>
+    <div class="body">
+      </div>
 <%end%>
 
 <%= link_to 'New Post', new_post_path %>
