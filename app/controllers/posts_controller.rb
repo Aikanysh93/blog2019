@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_edit, only: [:edit, :update, :destroy]
   # GET /posts
   # GET /posts.json
   def index
@@ -73,4 +73,8 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:author, :body, :title, :page_views_count)
     end
+    def check_edit
+      redirect_to posts_path, notice: 'ДОСТУП ЗАПРЕЩЕН' if !@post.edit_by?(@current_post)
+
+      end
 end

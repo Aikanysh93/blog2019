@@ -10,6 +10,20 @@
   </head>
 
   <body>
+    <% flash.each do |key, val| %>
+      <p class='notice'>
+        <%= val %>
+        </p>
+        <%end%>
+
+    <% if @current_user%>
+    <%= "ЗДРАВСТВУЙТЕ, #{@current_user.login}!" %>
+    <%= link_to 'ВЫЙТИ', logout_path %>
+    <%else%>
+    <%= link_to 'ВОЙТИ', logout_path %>
+    <%=  link_to "ЗАРЕГИСТРИРОВАТЬСЯ", new_user_path %>
+    <% end%>
+
     <%= yield %>
   </body>
 </html>
