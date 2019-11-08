@@ -3,7 +3,8 @@ class Post < ApplicationRecord
   validates :body, presence: true
   validates :title, presence: true, length: {minimum: 3, maximum: 255}
 
-  def edit_by?(current_post)
-    !current_post.nil? && (current_post == self || current_post.admin?)
+  def edit_by?(current_user)
+    user == current_user || current_user&.admin?
+    
   end
 end

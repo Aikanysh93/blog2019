@@ -1,11 +1,12 @@
+
 ru:
   activerecord:
     models:
+      post: Сообщение
+    attributes:
       post:
-        attributes:
-          post:
-            author: Автор
-            body: Текст сообщения
-            title: Заголовок
-            page_views_count: Колличество просмотров
-  
+        author: Автор
+        body: Текст сообщения
+        title: Заголовок
+        page_views_count: Количество просмотров
+      # will translate User attribute "login" as "Handle"
